@@ -10,6 +10,11 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20(segera)-lightgrey)](#download)
 
+<p>
+  <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download untuk macOS Apple Silicon" /></a>
+  <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Intel-555555?style=for-the-badge&logo=apple&logoColor=white" alt="Download untuk macOS Intel" /></a>
+</p>
+
 [Download](#download) · [Fitur](#fitur) · [Keamanan](#keamanan--privasi) · [Build dari source](#build-dari-source) · [English](README.md)
 
 <img src="docs/assets/screenshot-main.png" alt="69 AI Network Console: terminal SSH ke switch Cisco dengan panel AI co-pilot" width="900" />
@@ -38,11 +43,13 @@ Kerja di perangkat jaringan biasanya berarti bolak-balik antara aplikasi termina
 
 | Platform | File | Catatan |
 | :--- | :--- | :--- |
-| macOS Apple Silicon (M1–M4) | `69-AI-Network-Console-<versi>-arm64.dmg` | macOS 12+ |
-| macOS Intel | `69-AI-Network-Console-<versi>-x64.dmg` | macOS 12+ |
+| macOS Apple Silicon (M1–M4) | [**69-AI-Network-Console-1.1.0-arm64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg) | macOS 12+ · 124 MB |
+| macOS Intel | [**69-AI-Network-Console-1.1.0-x64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg) | macOS 12+ · 130 MB |
 | Windows 10/11 | *segera* | |
 
-👉 Ambil versi terbaru di **[Releases](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)**. Setiap rilis menyertakan `SHA256SUMS.txt`:
+Bingung pilih yang mana? Menu Apple → **About This Mac**: kalau tertulis "Chip: Apple M…" berarti Apple Silicon, kalau "Processor: Intel" berarti Intel.
+
+Semua versi ada di **[halaman Releases](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)**. Cocokkan download-mu dengan [`SHA256SUMS.txt`](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/SHA256SUMS.txt):
 
 ```bash
 shasum -a 256 -c SHA256SUMS.txt --ignore-missing

@@ -12,6 +12,11 @@
 [![Electron](https://img.shields.io/badge/Electron-44-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![CI](https://github.com/ikhsan-hdytllh/69ai-network-console/actions/workflows/ci.yml/badge.svg)](https://github.com/ikhsan-hdytllh/69ai-network-console/actions/workflows/ci.yml)
 
+<p>
+  <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS Apple Silicon" /></a>
+  <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Intel-555555?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS Intel" /></a>
+</p>
+
 [Download](#download) · [Features](#features) · [Security](#security--privacy) · [Build from source](#build-from-source) · [Bahasa Indonesia](README.id.md)
 
 <img src="docs/assets/screenshot-main.png" alt="69 AI Network Console: SSH terminal to a Cisco switch with the AI co-pilot panel" width="900" />
@@ -40,11 +45,13 @@ Working on network gear usually means juggling a terminal app, a serial console 
 
 | Platform | File | Notes |
 | :--- | :--- | :--- |
-| macOS, Apple Silicon (M1–M4) | `69-AI-Network-Console-<version>-arm64.dmg` | macOS 12+ |
-| macOS, Intel | `69-AI-Network-Console-<version>-x64.dmg` | macOS 12+ |
+| macOS, Apple Silicon (M1–M4) | [**69-AI-Network-Console-1.1.0-arm64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg) | macOS 12+ · 124 MB |
+| macOS, Intel | [**69-AI-Network-Console-1.1.0-x64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg) | macOS 12+ · 130 MB |
 | Windows 10/11 | *coming soon* | |
 
-👉 Get the latest build from **[Releases](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)**. Every release includes a `SHA256SUMS.txt`:
+Not sure which one? Apple menu → **About This Mac**: "Chip: Apple M…" means Apple Silicon, "Processor: Intel" means Intel.
+
+All versions are on the **[Releases page](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)**. Verify your download with [`SHA256SUMS.txt`](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/SHA256SUMS.txt):
 
 ```bash
 shasum -a 256 -c SHA256SUMS.txt --ignore-missing
