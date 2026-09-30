@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Syntax check main process
+        run: node --check desktop-main.js && node --check desktop-preload.js
+
+      - name: Type-check and build UI
+        run: npm run build:frontend
+
+      - name: app-dist must match frontend/ source
+        run: git diff --exit-code -- app-dist
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high && npm --prefix frontend audit --omit=dev --audit-level=high

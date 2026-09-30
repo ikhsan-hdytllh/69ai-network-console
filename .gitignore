@@ -1,0 +1,9 @@
+node_modules/
+dist-desktop/
+src-tauri/target/
+.DS_Store
+*.log
+
+# Arsip export AI Studio v19 (referensi, bukan sumber build)
+GITHUB 69/
+frontend/node_modules/

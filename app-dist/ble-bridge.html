@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>69 AI BLE Serial Bridge (Irxon BT578 V3)</title>
+  <script>
+    window.onerror = function() { return true; };
+    window.addEventListener('error', function(e) { e.preventDefault(); return true; }, true);
+    window.addEventListener('unhandledrejection', function(e) { e.preventDefault(); });
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: transparent;
+      color: #e2e8f0;
+      font-size: 12px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="ble-status-container" style="display:none;"></div>
+  <script src="./BleWebViewBridge.js"></script>
+</body>
+</html>

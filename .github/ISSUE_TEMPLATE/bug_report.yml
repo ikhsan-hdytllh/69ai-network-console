@@ -1,0 +1,68 @@
+name: 🐛 Bug report
+description: Something isn't working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! **Remove passwords, API keys, public IPs and customer configs** before pasting anything.
+        Security vulnerability? Please follow SECURITY.md instead of opening an issue.
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: "1.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Windows
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - SSH terminal
+        - Serial (USB)
+        - Bluetooth / BLE
+        - AI co-pilot
+        - Offline knowledge base
+        - Toolbox (ping, traffic generator, FTP/TFTP)
+        - Installer / first launch
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device vendor / model / OS version (if relevant)
+      placeholder: "Cisco C9300, IOS-XE 17.9.4a"
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Add SSH device ...
+        2. Run `show ip int brief`
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (optional)
+      description: "macOS: ~/Library/Logs/69 AI Network Console/main.log"
+      render: text

@@ -1,0 +1,114 @@
+{
+  "name": "69ai-desktop-console",
+  "version": "1.1.0",
+  "description": "Universal Network Console & Multi-Vendor CLI Assistant for Windows and macOS",
+  "main": "desktop-main.js",
+  "author": "Yoga Romadiputra <yoga.romadiputra@vstecsindo.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:frontend": "npm --prefix frontend ci --no-audit && npm --prefix frontend run lint && npm --prefix frontend run build",
+    "start": "electron .",
+    "dev": "electron .",
+    "electron:dev": "electron .",
+    "build": "electron-builder --mac",
+    "build:mac": "electron-builder --mac",
+    "build:dmg": "electron-builder --mac dmg",
+    "build:win": "electron-builder --win",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux",
+    "dist": "electron-builder --win --mac --linux"
+  },
+  "dependencies": {
+    "serialport": "^12.0.0",
+    "ssh2": "^1.15.0"
+  },
+  "devDependencies": {
+    "electron": "^44.5.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.sixtynine.desktopconsole",
+    "productName": "69 AI Network Console",
+    "copyright": "Copyright © 2026 Yoga Romadiputra",
+    "directories": {
+      "output": "dist-desktop",
+      "buildResources": "build"
+    },
+    "files": [
+      "app-dist/**/*",
+      "desktop-main.js",
+      "desktop-preload.js",
+      "package.json",
+      "!node_modules/cpu-features/**",
+      "!node_modules/@serialport/bindings-cpp/prebuilds/{win32,linux,android}-*/**"
+    ],
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "69 AI Network Console"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "extendInfo": {
+        "NSBluetoothAlwaysUsageDescription": "Aplikasi memerlukan akses Bluetooth untuk menghubungkan adapter serial IRXON BT578 BLE ke console router/switch.",
+        "NSBluetoothPeripheralUsageDescription": "Aplikasi memerlukan akses Bluetooth BLE untuk komunikasi serial router/switch."
+      },
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "identity": "-"
+    },
+    "dmg": {
+      "title": "69 AI Network Console ${version}",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "window": {
+        "width": 540,
+        "height": 380
+      }
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development"
+    },
+    "npmRebuild": false,
+    "artifactName": "69-AI-Network-Console-${version}-${arch}.${ext}"
+  }
+}
