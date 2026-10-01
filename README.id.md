@@ -8,11 +8,12 @@
 
 [![Release](https://img.shields.io/github/v/release/ikhsan-hdytllh/69ai-network-console?include_prereleases&label=release)](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20(segera)-lightgrey)](#download)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey)](#download)
 
 <p>
   <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download untuk macOS Apple Silicon" /></a>
   <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Intel-555555?style=for-the-badge&logo=apple&logoColor=white" alt="Download untuk macOS Intel" /></a>
+  <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64-setup.exe"><img src="https://img.shields.io/badge/Download-Windows%20x64-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download untuk Windows x64" /></a>
 </p>
 
 [Download](#download) · [Fitur](#fitur) · [Keamanan](#keamanan--privasi) · [Build dari source](#build-dari-source) · [English](README.md)
@@ -45,14 +46,19 @@ Kerja di perangkat jaringan biasanya berarti bolak-balik antara aplikasi termina
 | :--- | :--- | :--- |
 | macOS Apple Silicon (M1–M4) | [**69-AI-Network-Console-1.1.0-arm64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg) | macOS 12+ · 124 MB |
 | macOS Intel | [**69-AI-Network-Console-1.1.0-x64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg) | macOS 12+ · 130 MB |
-| Windows 10/11 | *segera* | |
+| Windows 10/11, installer | [**69-AI-Network-Console-1.1.0-x64-setup.exe**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64-setup.exe) | 64-bit · 117 MB |
+| Windows 10/11, portable | [**69-AI-Network-Console-1.1.0-x64-portable.exe**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64-portable.exe) | Tanpa instalasi, bisa dijalankan dari folder mana saja · 117 MB |
 
 Bingung pilih yang mana? Menu Apple → **About This Mac**: kalau tertulis "Chip: Apple M…" berarti Apple Silicon, kalau "Processor: Intel" berarti Intel.
 
 Semua versi ada di **[halaman Releases](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)**. Cocokkan download-mu dengan [`SHA256SUMS.txt`](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/SHA256SUMS.txt):
 
 ```bash
-shasum -a 256 -c SHA256SUMS.txt --ignore-missing
+shasum -a 256 -c SHA256SUMS.txt --ignore-missing       # macOS
+```
+
+```powershell
+Get-FileHash .\69-AI-Network-Console-1.1.0-x64-setup.exe   # Windows (PowerShell)
 ```
 
 ### Pertama kali membuka di macOS
@@ -72,6 +78,10 @@ Lakukan ini hanya untuk file yang checksum-nya sudah kamu cocokkan:
 xattr -dr com.apple.quarantine "/Applications/69 AI Network Console.app"
 ```
 </details>
+
+### Pertama kali membuka di Windows
+
+Installer-nya **belum di-code-sign**, jadi Microsoft Defender SmartScreen bisa menampilkan *"Windows protected your PC"*. Klik **More info → Run anyway**. Lakukan ini hanya untuk file yang checksum-nya sudah kamu cocokkan.
 
 ## Mulai cepat
 
@@ -96,7 +106,7 @@ Detail: [PRIVACY.md](docs/PRIVACY.md) · Menemukan celah keamanan? Lihat [SECURI
 
 ## Build dari source
 
-Kebutuhan: **Node.js 20+** dan macOS (untuk build DMG).
+Kebutuhan: **Node.js 20+**. Build DMG butuh macOS; installer Windows bisa di-build dari macOS atau Windows.
 
 ```bash
 git clone https://github.com/ikhsan-hdytllh/69ai-network-console.git
@@ -105,6 +115,7 @@ npm ci
 npm run build:frontend     # UI React (frontend/) → app-dist/
 npm start                  # jalankan aplikasi
 ./scripts/build-macos.sh   # DMG arm64 + x64 beserta checksum → dist-desktop/
+npm run dist:win           # .exe Windows x64 (setup + portable) → dist-desktop/
 ```
 
 Struktur proyek:
@@ -122,12 +133,12 @@ scripts/           build-macos.sh, build-windows.bat
 ## Keterbatasan yang diketahui
 
 - Algoritma lama (`diffie-hellman-group1-sha1`, CBC/3DES, `hmac-md5`, `ssh-dss`) bisa dipakai lewat dialog **mode Legacy** per perangkat.
-- Installer Windows belum dirilis.
+- Build Windows belum di-code-sign dan belum diuji di PC Windows asli.
 
 ## Roadmap
 
 - [x] DMG macOS (Apple Silicon & Intel)
-- [ ] Installer Windows
+- [x] Installer Windows (x64 setup & portable)
 - [ ] Uji perangkat asli Cisco / MikroTik / BT578 ([test plan](docs/04-verification/TEST-PLAN.md))
 - [ ] v1.2: browser Web GUI perangkat dan quick-connect bar
 

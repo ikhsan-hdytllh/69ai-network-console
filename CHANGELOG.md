@@ -3,6 +3,9 @@
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+### Added
+- Installer Windows x64 (NSIS setup + portable `.exe`), belum di-code-sign
+
 ### Fixed
 - Perangkat yang hanya mendukung `diffie-hellman-group1-sha1` kini bisa di-SSH lewat mode Legacy; prime Oakley Group 2 (RFC 2409) disediakan manual karena BoringSSL di Electron tidak mengenal grup `modp2` [F-23]
 

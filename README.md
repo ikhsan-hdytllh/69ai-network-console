@@ -8,13 +8,14 @@
 
 [![Release](https://img.shields.io/github/v/release/ikhsan-hdytllh/69ai-network-console?include_prereleases&label=release)](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20(soon)-lightgrey)](#download)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey)](#download)
 [![Electron](https://img.shields.io/badge/Electron-44-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![CI](https://github.com/ikhsan-hdytllh/69ai-network-console/actions/workflows/ci.yml/badge.svg)](https://github.com/ikhsan-hdytllh/69ai-network-console/actions/workflows/ci.yml)
 
 <p>
   <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS Apple Silicon" /></a>
   <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg"><img src="https://img.shields.io/badge/Download-macOS%20Intel-555555?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS Intel" /></a>
+  <a href="https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64-setup.exe"><img src="https://img.shields.io/badge/Download-Windows%20x64-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows x64" /></a>
 </p>
 
 [Download](#download) · [Features](#features) · [Security](#security--privacy) · [Build from source](#build-from-source) · [Bahasa Indonesia](README.id.md)
@@ -47,14 +48,19 @@ Working on network gear usually means juggling a terminal app, a serial console 
 | :--- | :--- | :--- |
 | macOS, Apple Silicon (M1–M4) | [**69-AI-Network-Console-1.1.0-arm64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-arm64.dmg) | macOS 12+ · 124 MB |
 | macOS, Intel | [**69-AI-Network-Console-1.1.0-x64.dmg**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64.dmg) | macOS 12+ · 130 MB |
-| Windows 10/11 | *coming soon* | |
+| Windows 10/11, installer | [**69-AI-Network-Console-1.1.0-x64-setup.exe**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64-setup.exe) | 64-bit · 117 MB |
+| Windows 10/11, portable | [**69-AI-Network-Console-1.1.0-x64-portable.exe**](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/69-AI-Network-Console-1.1.0-x64-portable.exe) | No install, runs from any folder · 117 MB |
 
 Not sure which one? Apple menu → **About This Mac**: "Chip: Apple M…" means Apple Silicon, "Processor: Intel" means Intel.
 
 All versions are on the **[Releases page](https://github.com/ikhsan-hdytllh/69ai-network-console/releases)**. Verify your download with [`SHA256SUMS.txt`](https://github.com/ikhsan-hdytllh/69ai-network-console/releases/download/v1.1.0/SHA256SUMS.txt):
 
 ```bash
-shasum -a 256 -c SHA256SUMS.txt --ignore-missing
+shasum -a 256 -c SHA256SUMS.txt --ignore-missing       # macOS
+```
+
+```powershell
+Get-FileHash .\69-AI-Network-Console-1.1.0-x64-setup.exe   # Windows (PowerShell)
 ```
 
 ### First launch on macOS
@@ -74,6 +80,10 @@ Only do this for a file whose checksum you have verified:
 xattr -dr com.apple.quarantine "/Applications/69 AI Network Console.app"
 ```
 </details>
+
+### First launch on Windows
+
+The installer is **not code-signed**, so Microsoft Defender SmartScreen may show *"Windows protected your PC"*. Click **More info → Run anyway**. Only do this for a file whose checksum you have verified.
 
 ## Quick start
 
@@ -98,7 +108,7 @@ Details: [PRIVACY.md](docs/PRIVACY.md) · Found a vulnerability? See [SECURITY.m
 
 ## Build from source
 
-Requirements: **Node.js 20+** and macOS (for DMG builds).
+Requirements: **Node.js 20+**. DMG builds need macOS; the Windows installer can be built on macOS or Windows.
 
 ```bash
 git clone https://github.com/ikhsan-hdytllh/69ai-network-console.git
@@ -107,6 +117,7 @@ npm ci
 npm run build:frontend     # React UI (frontend/) → app-dist/
 npm start                  # run the app
 ./scripts/build-macos.sh   # DMG for arm64 + x64, with checksums → dist-desktop/
+npm run dist:win           # Windows x64 setup + portable .exe → dist-desktop/
 ```
 
 Project layout:
@@ -123,12 +134,12 @@ scripts/           build-macos.sh, build-windows.bat
 
 ## Known limitations
 
-- The Windows installer isn't published yet.
+- The Windows build is not code-signed and hasn't been tested on real Windows hardware yet.
 
 ## Roadmap
 
 - [x] macOS DMG (Apple Silicon & Intel)
-- [ ] Windows installer
+- [x] Windows installer (x64 setup & portable)
 - [ ] Hardware test pass on real Cisco / MikroTik / BT578 gear ([test plan](docs/04-verification/TEST-PLAN.md))
 - [ ] v1.2: built-in device web-GUI browser and quick-connect bar
 

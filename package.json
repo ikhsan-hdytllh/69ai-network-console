@@ -39,25 +39,39 @@
       "app-dist/**/*",
       "electron/**/*",
       "package.json",
-      "!node_modules/cpu-features/**",
-      "!node_modules/@serialport/bindings-cpp/prebuilds/{win32,linux,android}-*/**"
+      "!node_modules/cpu-features/**"
     ],
     "asarUnpack": [
       "**/*.node"
     ],
     "win": {
       "target": [
-        "nsis",
-        "portable"
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
       ],
-      "icon": "build/icon.png"
+      "icon": "build/icon.png",
+      "files": [
+        "!node_modules/@serialport/bindings-cpp/prebuilds/{darwin,linux,android}-*/**",
+        "!node_modules/@serialport/bindings-cpp/prebuilds/win32-ia32/**"
+      ]
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "69 AI Network Console"
+      "shortcutName": "69 AI Network Console",
+      "artifactName": "69-AI-Network-Console-${version}-${arch}-setup.${ext}"
     },
     "mac": {
       "target": [
@@ -79,7 +93,10 @@
       },
       "entitlements": "build/entitlements.mac.plist",
       "entitlementsInherit": "build/entitlements.mac.plist",
-      "identity": "-"
+      "identity": "-",
+      "files": [
+        "!node_modules/@serialport/bindings-cpp/prebuilds/{win32,linux,android}-*/**"
+      ]
     },
     "dmg": {
       "title": "69 AI Network Console ${version}",
@@ -108,6 +125,12 @@
       "category": "Development"
     },
     "npmRebuild": false,
-    "artifactName": "69-AI-Network-Console-${version}-${arch}.${ext}"
+    "artifactName": "69-AI-Network-Console-${version}-${arch}.${ext}",
+    "portable": {
+      "artifactName": "69-AI-Network-Console-${version}-${arch}-portable.${ext}"
+    },
+    "toolsets": {
+      "nsis": "1.2.1"
+    }
   }
 }
