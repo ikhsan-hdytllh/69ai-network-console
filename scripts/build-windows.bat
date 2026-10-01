@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0.."
 echo ================================================
 echo   69 AI - Windows .EXE Installer Builder (1-Click)
 echo ================================================

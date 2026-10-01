@@ -26,7 +26,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Syntax check main process
-        run: node --check desktop-main.js && node --check desktop-preload.js
+        run: node --check electron/main.js && node --check electron/preload.js
 
       - name: Type-check and build UI
         run: npm run build:frontend

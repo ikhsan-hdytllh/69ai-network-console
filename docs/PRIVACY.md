@@ -1,6 +1,6 @@
 # Privasi
 
-> Dokumen ini menjelaskan perilaku **versi 1.1.0**. Versi 1.0.0 (baseline) masih mengirim data ke relay pihak ketiga; lihat [audit](docs/00-baseline/AUDIT-2026-09-30.md) temuan F-04.
+> Dokumen ini menjelaskan perilaku **versi 1.1.0**. Versi 1.0.0 (baseline) masih mengirim data ke relay pihak ketiga; lihat [audit](00-baseline/AUDIT-2026-09-30.md) temuan F-04.
 
 69 AI Network Console **tidak memiliki server sendiri**, tidak memakai telemetry, dan tidak mengumpulkan analytics.
 

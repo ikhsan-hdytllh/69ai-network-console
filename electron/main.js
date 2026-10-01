@@ -108,7 +108,7 @@ function createWindow() {
     title: '69 AI • Universal Network Console (Native Edition)',
     backgroundColor: '#000000',
     webPreferences: {
-      preload: path.join(__dirname, 'desktop-preload.js'),
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
       sandbox: true, // [SEC-03] Akses hardware tetap lewat IPC di main process
@@ -178,7 +178,7 @@ function createWindow() {
   });
   ses.setDevicePermissionHandler((details) => ALLOWED_DEVICE_TYPES.has(details.deviceType));
 
-  mainWindow.loadFile(path.join(__dirname, 'app-dist/index.html'));
+  mainWindow.loadFile(path.join(__dirname, '../app-dist/index.html'));
   Menu.setApplicationMenu(null);
 }
 

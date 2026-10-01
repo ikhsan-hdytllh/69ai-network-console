@@ -19,10 +19,10 @@
 1. Siapkan gambar icon Anda (format PNG 512x512 atau 1024x1024).
 2. Konversi ke format `.icns` (bisa menggunakan web gratis seperti cloudconvert.com atau app Image2icon di Mac).
 3. Simpan file tersebut dengan nama **`icon.icns`** dan letakkan di dalam folder:
-   `build/icon.icns` (atau `icons/icon.icns`).
+   `build/icon.icns`.
 4. Jalankan kembali script:
    ```bash
-   ./build-macos.sh
+   ./scripts/build-macos.sh
    ```
 
 ### Trik Cepat Ganti Icon Langsung di Mac (Tanpa Rebuild):
@@ -33,4 +33,4 @@
 ### Di Windows (.exe):
 1. Simpan icon format `.ico` (resolusi 256x256) di:
    `build/icon.ico`.
-2. Jalankan `build-windows.bat`.
+2. Jalankan `scripts\build-windows.bat`.

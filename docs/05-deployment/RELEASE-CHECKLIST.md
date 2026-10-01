@@ -3,7 +3,7 @@
 ## A. Pra-build
 - [ ] Gate Fase 4 ditutup (traceability 100% ✅)
 - [ ] Versi di `package.json` dinaikkan ke `1.1.0`, `CHANGELOG.md` diperbarui
-- [ ] `PACKAGE-INFO.json` diperbarui atau dihapus
+- [x] `PACKAGE-INFO.json` dihapus (2026-10-01)
 - [x] Nama pemegang hak cipta di `LICENSE` dan `package.json` (`author`, `copyright`) sudah final: Yoga Romadiputra
 - [ ] `package-lock.json` (root & `frontend/`) di-commit; build memakai `npm ci`
 - [ ] `npm run build:frontend` sukses (tsc 0 error) dan `git status` bersih setelahnya (app-dist sesuai source)
@@ -13,7 +13,7 @@
 ## B. macOS (CR-009: ad-hoc, tanpa notarization)
 - [x] `package.json`: `mac.identity: "-"`, `hardenedRuntime: false`, target DMG `arm64` + `x64`, `npmRebuild: false`
 - [x] Paket tidak membawa `cpu-features` (binary host) dan prebuild serialport non-Mac
-- [x] `./build-macos.sh` menghasilkan 2 DMG + `SHA256SUMS.txt`; `codesign --verify --deep --strict` OK (2026-09-30, rc.1)
+- [x] `./scripts/build-macos.sh` menghasilkan 2 DMG + `SHA256SUMS.txt`; `codesign --verify --deep --strict` OK (2026-09-30, rc.1)
 - [x] Paket arm64 memuat `serialport` & `ssh2` dari `app.asar`
 - [ ] Paket x64 diuji di Mac Intel atau Mac dengan Rosetta
 - [ ] Uji instal di Mac lain: *Open Anyway* berhasil, serial/BLE/SSH berfungsi (TC-21)

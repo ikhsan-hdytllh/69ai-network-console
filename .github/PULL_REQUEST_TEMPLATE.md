@@ -5,7 +5,7 @@
 ## Checklist
 
 - [ ] `npm run build:frontend` passes and the rebuilt `app-dist/` is committed
-- [ ] `node --check desktop-main.js desktop-preload.js` passes
+- [ ] `node --check electron/main.js electron/preload.js` passes
 - [ ] No secrets, real device IPs or customer configs
 - [ ] Main process / IPC changes keep the security rules in CONTRIBUTING.md
 - [ ] Tested on: <!-- macOS arm64 / macOS x64 / Windows, device vendor/model -->

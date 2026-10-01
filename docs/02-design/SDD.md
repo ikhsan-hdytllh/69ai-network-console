@@ -12,9 +12,9 @@
 │  TerminalScreen · AiAssistantPanel · OfflineKbModal · TrafficGenerator · ...  │
 │            │  window.DesktopNative.*  (hanya API ini yang terekspos)          │
 └────────────┼──────────────────────────────────────────────────────────────────┘
-             │ contextBridge (desktop-preload.js)
+             │ contextBridge (electron/preload.js)  
              ▼ ipcRenderer.invoke / on
-┌──────────────────────────── Main process (desktop-main.js) ───────────────────┐
+┌──────────────────────────── Main process (electron/main.js) ────────────────────┐
 │ IPC validator (SEC-09)                                                        │
 │  ├─ serial:*   → serialport  ── USB/BT serial ──► Router/Switch console       │
 │  ├─ ssh:*      → ssh2 + known_hosts (SEC-07) ───► Perangkat via TCP/22        │
@@ -29,8 +29,8 @@
 
 | Komponen | File | Tanggung jawab |
 | :--- | :--- | :--- |
-| Main process | `desktop-main.js` | Lifecycle jendela, handler IPC, akses hardware dan jaringan |
-| Preload | `desktop-preload.js` | Mengekspos `window.DesktopNative` (API minimal) |
+| Main process | `electron/main.js` | Lifecycle jendela, handler IPC, akses hardware dan jaringan |
+| Preload | `electron/preload.js` | Mengekspos `window.DesktopNative` (API minimal) |
 | Renderer | source `frontend/src/` → build `app-dist/` (`npm run build:frontend`) | UI, state perangkat, rendering markdown AI. Secret hanya berupa placeholder (`utils/secretVault.ts`) |
 | KB offline | `app-dist/offline-commands-db.json` | 72 entri perintah multi-vendor |
 | BLE bridge | `app-dist/BleWebViewBridge.js` | Web Bluetooth UART (FFE0/FFE1, NUS, ISSC) |
@@ -80,8 +80,8 @@ Semua handler: cek `event.senderFrame` berasal dari jendela utama, lalu validasi
 ```
 69 AI Network Console.app
 └─ Contents/Resources/app.asar
-   ├─ desktop-main.js
-   ├─ desktop-preload.js
+   ├─ electron/main.js
+   ├─ electron/preload.js
    ├─ package.json
    ├─ app-dist/            (tanpa electron-files/)
    └─ node_modules/        (production only: serialport, ssh2)

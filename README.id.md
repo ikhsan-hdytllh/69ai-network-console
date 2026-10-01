@@ -92,7 +92,7 @@ Proyek ini awalnya prototipe hasil generate AI, lalu melewati [audit keamanan](d
 | 🛡️ **SSH** | Host key diverifikasi (trust on first use). Algoritma lama yang lemah hanya aktif per perangkat, setelah kamu setujui. |
 | 🧱 **Hardening aplikasi** | Renderer sandbox, Content-Security-Policy ketat, IPC tervalidasi, dan tidak ada perintah shell yang dirangkai dari input user. |
 
-Detail: [PRIVACY.md](PRIVACY.md) · Menemukan celah keamanan? Lihat [SECURITY.md](SECURITY.md). Tolong jangan buka issue publik.
+Detail: [PRIVACY.md](docs/PRIVACY.md) · Menemukan celah keamanan? Lihat [SECURITY.md](.github/SECURITY.md). Tolong jangan buka issue publik.
 
 ## Build dari source
 
@@ -102,19 +102,21 @@ Kebutuhan: **Node.js 20+** dan macOS (untuk build DMG).
 git clone https://github.com/ikhsan-hdytllh/69ai-network-console.git
 cd 69ai-network-console
 npm ci
-npm run build:frontend   # UI React (frontend/) → app-dist/
-npm start                # jalankan aplikasi
-./build-macos.sh         # DMG arm64 + x64 beserta checksum → dist-desktop/
+npm run build:frontend     # UI React (frontend/) → app-dist/
+npm start                  # jalankan aplikasi
+./scripts/build-macos.sh   # DMG arm64 + x64 beserta checksum → dist-desktop/
 ```
 
 Struktur proyek:
 
 ```
-frontend/          source UI (React + Vite)
+.github/           CI, template issue/PR, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT
 app-dist/          UI hasil build yang dimuat Electron (dibuat oleh build:frontend)
-desktop-main.js    main process Electron: SSH, serial, AI, secret, IPC
-desktop-preload.js satu-satunya jembatan ke UI (window.DesktopNative)
-docs/              requirement, design, test plan, proses rilis (Waterfall)
+build/             icon & entitlements untuk electron-builder
+docs/              requirement, design, test plan, proses rilis, PRIVACY (Waterfall)
+electron/          main process (SSH, serial, AI, secret, IPC) + preload bridge
+frontend/          source UI (React + Vite)
+scripts/           build-macos.sh, build-windows.bat
 ```
 
 ## Keterbatasan yang diketahui
@@ -131,7 +133,7 @@ docs/              requirement, design, test plan, proses rilis (Waterfall)
 
 ## Kontribusi
 
-Laporan bug, perbaikan perintah vendor, dan PR sangat diterima. Mulai dari [CONTRIBUTING.md](CONTRIBUTING.md). Kalau tool ini menghemat waktumu, kasih ⭐ supaya network engineer lain bisa menemukannya.
+Laporan bug, perbaikan perintah vendor, dan PR sangat diterima. Mulai dari [CONTRIBUTING.md](.github/CONTRIBUTING.md). Kalau tool ini menghemat waktumu, kasih ⭐ supaya network engineer lain bisa menemukannya.
 
 ## Lisensi
 

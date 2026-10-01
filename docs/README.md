@@ -34,6 +34,6 @@ Proyek ini dikelola dengan model **Waterfall**. Setiap fase harus selesai dan di
 
 ## Dokumen publik (ikut dirilis)
 - [../README.md](../README.md): pengenalan untuk pengguna
-- [../SECURITY.md](../SECURITY.md): kebijakan pelaporan celah keamanan
-- [../PRIVACY.md](../PRIVACY.md): data apa yang dikirim ke mana
+- [SECURITY.md](../.github/SECURITY.md): kebijakan pelaporan celah keamanan
+- [PRIVACY.md](PRIVACY.md): data apa yang dikirim ke mana
 - [../CHANGELOG.md](../CHANGELOG.md): riwayat versi

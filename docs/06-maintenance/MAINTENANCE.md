@@ -18,4 +18,4 @@
 Semantic Versioning: `MAJOR.MINOR.PATCH`. Setiap rilis wajib punya entri di `CHANGELOG.md`.
 
 ## Penanganan laporan keamanan
-Ikuti [SECURITY.md](../../SECURITY.md). Target: konfirmasi ≤ 3 hari kerja, patch untuk severity high ≤ 14 hari.
+Ikuti [SECURITY.md](../../.github/SECURITY.md). Target: konfirmasi ≤ 3 hari kerja, patch untuk severity high ≤ 14 hari.

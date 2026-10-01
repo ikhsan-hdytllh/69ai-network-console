@@ -2,7 +2,7 @@
   "name": "69ai-desktop-console",
   "version": "1.1.0",
   "description": "Universal Network Console & Multi-Vendor CLI Assistant for Windows and macOS",
-  "main": "desktop-main.js",
+  "main": "electron/main.js",
   "author": "Yoga Romadiputra <yoga.romadiputra@vstecsindo.com>",
   "license": "MIT",
   "scripts": {
@@ -37,8 +37,7 @@
     },
     "files": [
       "app-dist/**/*",
-      "desktop-main.js",
-      "desktop-preload.js",
+      "electron/**/*",
       "package.json",
       "!node_modules/cpu-features/**",
       "!node_modules/@serialport/bindings-cpp/prebuilds/{win32,linux,android}-*/**"

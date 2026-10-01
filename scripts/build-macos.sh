@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+cd "$(dirname "$0")/.."
 echo "================================================"
 echo "  69 AI - macOS DMG Installer Builder (1-Click)"
 echo "================================================"
