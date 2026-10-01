@@ -368,7 +368,7 @@ export function getApiEndpointCandidates(endpointPath: string): string[] {
     }
   }
 
-  // [SEC-04] Fallback localhost:3000 & relay Cloud Run AI Studio dihapus.
+  // [SEC-04] Fallback localhost:3000 & relay Cloud Run pihak ketiga dihapus.
   // Aplikasi desktop tidak memakai endpoint server sama sekali.
   if (isDesktopNative()) return [];
 
@@ -638,7 +638,7 @@ export async function validateAiConnection(
   const isHttpOrigin = typeof window !== 'undefined' && /^https?:$/.test(window.location.protocol) && !window.location.origin.includes('localhost:5173');
 
   // 1. Custom Server Relay, atau server asal halaman (mode web) bila belum ada API key.
-  // [SEC-04] Tidak ada lagi fallback ke relay Cloud Run AI Studio.
+  // [SEC-04] Tidak ada lagi fallback ke relay Cloud Run pihak ketiga.
   const relayCandidates = [
     ...(customServerUrl && customServerUrl.startsWith('http') ? [customServerUrl.replace(/\/+$/, '') + '/api/chat'] : []),
     ...((!keyToUse || !keyToUse.trim()) && isHttpOrigin ? [`${window.location.origin}/api/chat`] : [])

@@ -607,7 +607,7 @@ export async function sendNetworkAiChat(payload: ChatRequestPayload): Promise<Ch
     }
   }
 
-  // [SEC-04] Relay cloud AI Studio & localhost dihapus. Desktop tidak memakai endpoint server sama sekali.
+  // [SEC-04] Relay cloud pihak ketiga & localhost dihapus. Desktop tidak memakai endpoint server sama sekali.
   const uniqueEndpoints = desktopApp ? [] : serverEndpoints.filter((ep, idx, arr) => arr.indexOf(ep) === idx);
 
   // Helper function to query server endpoints

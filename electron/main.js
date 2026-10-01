@@ -1246,7 +1246,7 @@ Berikan jawaban teknis to-the-point dengan tabel markdown dan blok kode CLI mark
     }
   }
 
-  // [SEC-04] Relay cloud (AI Studio Cloud Run / localhost:3000) dihapus: API key dan isi terminal
+  // [SEC-04] Relay cloud (Cloud Run pihak ketiga / localhost:3000) dihapus: API key dan isi terminal
   // hanya boleh dikirim ke endpoint resmi provider di atas.
 
   // Tier 2: Built-in Multi-Vendor Network Intelligence & Diagnostic Engine
