@@ -24,7 +24,7 @@
 | TC-11 | SEC-05 | `show run` berisi `enable secret` dan `snmp-server community`, lalu kirim ke AI dengan opt-in aktif | Payload berisi `***`, bukan secret aslinya |
 | TC-12 | SEC-06 | Simpan API key, lalu cek `localStorage` dan `userData` | Key tidak ada dalam bentuk plaintext |
 | TC-13 | SEC-07 | Connect SSH, ganti host key server, lalu connect lagi | Muncul peringatan dan koneksi diblokir sampai user menyetujui |
-| TC-14 | SEC-07 | Connect ke perangkat yang hanya mendukung cipher CBC / `hmac-md5` | Dialog Legacy muncul; ditolak → gagal; disetujui → berhasil dan diingat. Catatan: perangkat yang **hanya** mendukung `group1-sha1` tidak didukung (F-23) |
+| TC-14 | SEC-07 | Connect ke perangkat yang hanya mendukung cipher CBC / `hmac-md5` | Dialog Legacy muncul; ditolak → gagal; disetujui → berhasil dan diingat. Perangkat yang **hanya** mendukung `group1-sha1` juga lewat jalur yang sama (F-23, diperbaiki) |
 | TC-15 | SEC-08 | Cari email/nama default pihak ketiga (daftar di catatan audit lokal) pada hasil build | 0 hasil |
 | TC-16 | FR-09/10 | Chat AI dengan key valid, lalu matikan internet dan chat lagi | Jawaban Gemini; lalu jawaban KB offline |
 | TC-17 | FR-07 | Pair BT578 dan kirim `show version` | Output diterima |

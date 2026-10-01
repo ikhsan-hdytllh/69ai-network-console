@@ -2,7 +2,11 @@
 
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan [Semantic Versioning](https://semver.org/).
 
-## [Unreleased] — target 1.1.0
+## [Unreleased]
+### Fixed
+- Perangkat yang hanya mendukung `diffie-hellman-group1-sha1` kini bisa di-SSH lewat mode Legacy; prime Oakley Group 2 (RFC 2409) disediakan manual karena BoringSSL di Electron tidak mengenal grup `modp2` [F-23]
+
+## [1.1.0] — 2026-09-30
 ### Security
 - Perbaikan command injection pada tool ping [SEC-01]
 - Validasi TLS tidak lagi dimatikan untuk seluruh aplikasi; sertifikat self-signed di browser Web GUI butuh konfirmasi per host [SEC-02]

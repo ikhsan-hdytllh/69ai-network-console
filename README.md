@@ -91,7 +91,7 @@ This project started as an AI-generated prototype and then went through a full [
 | 🔑 **Secrets** | API keys and device passwords are encrypted with the OS keychain (macOS Keychain / Windows DPAPI). The UI never gets them back in plain text. |
 | 🌐 **Where data goes** | Straight to the AI provider you picked. **No relay servers, no telemetry, no analytics.** |
 | 🖥️ **Terminal output → AI** | **Off by default.** When you turn it on, passwords, secrets, SNMP communities and PSKs are masked before anything leaves your machine. |
-| 🛡️ **SSH** | Host keys are verified (trust on first use). Weak legacy algorithms are only enabled per device, after you confirm. |
+| 🛡️ **SSH** | Host keys are verified (trust on first use). Weak legacy algorithms (including `diffie-hellman-group1-sha1`) are only enabled per device, after you confirm. |
 | 🧱 **App hardening** | Sandboxed renderer, strict Content-Security-Policy, validated IPC and no shell command construction from user input. |
 
 Details: [PRIVACY.md](PRIVACY.md) · Found a vulnerability? See [SECURITY.md](SECURITY.md). Please don't open a public issue.
@@ -121,7 +121,6 @@ docs/              requirements, design, test plan, release process (Indonesian)
 
 ## Known limitations
 
-- Devices that **only** support `diffie-hellman-group1-sha1` can't be reached over SSH: Electron's crypto library doesn't support it. Enable `diffie-hellman-group14-sha1` or newer on the device.
 - The Windows installer isn't published yet.
 
 ## Roadmap

@@ -119,8 +119,7 @@ docs/              requirement, design, test plan, proses rilis (Waterfall)
 
 ## Keterbatasan yang diketahui
 
-- Perangkat yang **hanya** mendukung `diffie-hellman-group1-sha1` tidak bisa di-SSH, karena library kripto Electron tidak mendukungnya. Aktifkan `diffie-hellman-group14-sha1` atau yang lebih baru di perangkat.
-- Algoritma lama lain (CBC/3DES, `hmac-md5`, `ssh-dss`) bisa dipakai lewat dialog **mode Legacy** per perangkat.
+- Algoritma lama (`diffie-hellman-group1-sha1`, CBC/3DES, `hmac-md5`, `ssh-dss`) bisa dipakai lewat dialog **mode Legacy** per perangkat.
 - Installer Windows belum dirilis.
 
 ## Roadmap

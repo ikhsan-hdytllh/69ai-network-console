@@ -58,6 +58,31 @@ try {
   console.warn('Native SerialPort module optional notice:', e);
 }
 
+// [F-23] BoringSSL di Electron tidak kenal grup 'modp2', jadi diffie-hellman-group1-sha1 gagal
+// dengan "Unknown DH group". Sediakan prime Oakley Group 2 (RFC 2409) secara eksplisit.
+// Harus dipasang SEBELUM require('ssh2') karena ssh2 mengambil fungsi crypto saat di-load.
+(function patchModp2() {
+  const crypto = require('crypto');
+  const original = crypto.createDiffieHellmanGroup;
+  const MODP2_PRIME = Buffer.from(
+    'FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74' +
+    '020BBEA63B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F1437' +
+    '4FE1356D6D51C245E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED' +
+    'EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE65381FFFFFFFFFFFFFFFF',
+    'hex'
+  );
+  const patched = function createDiffieHellmanGroup(name) {
+    try {
+      return original.call(crypto, name);
+    } catch (err) {
+      if (name === 'modp2') return crypto.createDiffieHellman(MODP2_PRIME, Buffer.from([2]));
+      throw err;
+    }
+  };
+  crypto.createDiffieHellmanGroup = patched;
+  crypto.getDiffieHellman = patched;
+})();
+
 let Client;
 try {
   Client = require('ssh2').Client;
@@ -479,8 +504,8 @@ const SSH_ALGORITHMS = {
     'diffie-hellman-group-exchange-sha256',
     'diffie-hellman-group14-sha256',
     'diffie-hellman-group14-sha1',
-    'diffie-hellman-group-exchange-sha1'
-    // diffie-hellman-group1-sha1 tidak didukung BoringSSL di Electron (modp2), jadi tidak ditawarkan (F-23)
+    'diffie-hellman-group-exchange-sha1',
+    'diffie-hellman-group1-sha1' // modp2 di-patch manual, lihat patchModp2 (F-23)
   ],
   cipher: [
     'aes128-ctr',
@@ -520,7 +545,7 @@ const SSH_ALGORITHMS = {
 
 // [SEC-07] Algoritma lemah hanya dipakai kalau user mengaktifkan mode legacy untuk host tsb (CR-002)
 const SSH_LEGACY_ONLY = {
-  kex: ['diffie-hellman-group-exchange-sha1'],
+  kex: ['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group1-sha1'],
   cipher: ['aes256-cbc', 'aes192-cbc', 'aes128-cbc', '3des-cbc'],
   serverHostKey: ['ssh-dss'],
   hmac: ['hmac-md5', 'hmac-sha1-96', 'hmac-md5-96']
@@ -590,7 +615,7 @@ async function askEnableLegacy(hostKey, err) {
     cancelId: 0,
     title: 'Perangkat memakai algoritma SSH lama',
     message: `${hostKey} hanya mendukung algoritma SSH lama yang lemah.`,
-    detail: `${err.message}\n\nMode Legacy mengaktifkan diffie-hellman-group-exchange-sha1, cipher CBC/3DES, ssh-dss, dan hmac-md5 khusus untuk host ini. Pakai hanya untuk perangkat lawas di jaringan yang kamu percaya.`
+    detail: `${err.message}\n\nMode Legacy mengaktifkan diffie-hellman-group1-sha1, diffie-hellman-group-exchange-sha1, cipher CBC/3DES, ssh-dss, dan hmac-md5 khusus untuk host ini. Pakai hanya untuk perangkat lawas di jaringan yang kamu percaya.`
   });
   if (response === 1) updateKnownHost(hostKey, { legacy: true });
   return response === 1;
