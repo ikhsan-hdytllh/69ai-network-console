@@ -72,7 +72,7 @@ Semua handler: cek `event.senderFrame` berasal dari jendela utama, lalu validasi
 | `api.openai.com` | OpenAI API | ✅ dipertahankan |
 | `dns.google`, `cloudflare-dns.com` | DoH lookup di renderer | ✅ dipertahankan (didokumentasikan di PRIVACY) |
 | `raw.githubusercontent.com`, `api.github.com` | Sinkronisasi katalog CLI vendor | ✅ dipertahankan |
-| `ais-dev-*` / `ais-pre-*.run.app` (Google AI Studio) | Relay chat cadangan | ❌ **dihapus** |
+| `*.run.app` (Cloud Run pihak ketiga) | Relay chat cadangan | ❌ **dihapus** |
 | `localhost:3000`, `127.0.0.1:3000`, `10.0.2.2:3000` | Relay dev server | ❌ **dihapus** |
 | `api.deepseek.com`, `api.anthropic.com` | Direferensikan di bundle | ⚠️ dicek setelah D-01 |
 

@@ -69,7 +69,7 @@
 | REL-06 | Checksum SHA-256 setiap installer dipublikasikan |
 
 ## 8. Asumsi & batasan
-- Source frontend tersedia dari Google AI Studio (D-01). Kalau tidak tersedia, SEC-04 dan SEC-05 hanya bisa ditegakkan dari sisi main process, dan SEC-06 serta SEC-08 tidak bisa dipenuhi.
+- Source frontend prototipe tersedia (D-01). Kalau tidak tersedia, SEC-04 dan SEC-05 hanya bisa ditegakkan dari sisi main process, dan SEC-06 serta SEC-08 tidak bisa dipenuhi.
 - Model Gemini yang dipakai (`gemini-3.8-flash` dst.) harus dicek ulang ketersediaannya saat Fase 4.
 
 ## 9. Exit criteria Fase 1

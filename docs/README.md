@@ -5,7 +5,7 @@ Proyek ini dikelola dengan model **Waterfall**. Setiap fase harus selesai dan di
 | Info | Nilai |
 | :--- | :--- |
 | Produk | 69 AI Network Console (Electron desktop, macOS & Windows) |
-| Versi baseline | 1.0.0 (hasil export Google AI Studio, pra-perbaikan) |
+| Versi baseline | 1.0.0 (prototipe awal, pra-perbaikan) |
 | Target rilis publik | 1.1.0 |
 | Tanggal baseline | 2026-09-30 |
 | Pemilik produk | _isi_ |

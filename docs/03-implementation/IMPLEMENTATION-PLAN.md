@@ -4,7 +4,7 @@ Dimulai **hanya setelah** gate Fase 1 dan 2 disetujui.
 
 ## Persiapan
 1. `git init`, lalu commit baseline apa adanya dengan tag `v1.0.0-baseline` (D-03).
-2. Ambil source frontend dari Google AI Studio dan taruh di `src/` beserta `vite.config.ts` (D-01).
+2. Ambil source frontend prototipe dan taruh di `src/` beserta `vite.config.ts` (D-01).
 3. Pakai `npm ci` dengan `package-lock.json` yang di-commit.
 
 ## Paket pekerjaan

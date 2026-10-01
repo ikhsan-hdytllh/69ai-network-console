@@ -11,7 +11,7 @@ Lingkungan: macOS (Darwin 27), Electron 44.5.0, commit `961700c`. Harness memuat
 | `ssh:write` ke sesi yang tidak ada → ditolak | TC-04 | ✅ |
 | `serial:write('default')` → ditolak | TC-05 | ✅ |
 | `window.open` eksternal → `null` | TC-08 | ✅ |
-| Fetch relay AI Studio & `localhost:3000` → diblokir CSP | TC-10 | ✅ |
+| Fetch relay cloud pihak ketiga & `localhost:3000` → diblokir CSP | TC-10 | ✅ |
 | Fetch Gemini API tetap diizinkan CSP (HTTP 403 tanpa key) | CR-001 | ✅ |
 | KB offline termuat (72 entri); fallback AI offline jalan | TC-16 | ✅ |
 | Secret tersimpan & terenkripsi; nama tak dikenal ditolak | TC-12 | ✅ |
@@ -56,7 +56,7 @@ Commit `01a17e8` + `e3ad1ea`. Harness menjalankan **server SSH lokal sungguhan**
 | Server CBC/hmac-md5: tolak Legacy → gagal; setuju → sukses, diingat, tanpa dialog lagi; server modern tetap non-legacy | TC-14 | ✅ |
 | Server group1-sha1 saja → `Unknown DH group` (keterbatasan BoringSSL, F-23) | TC-14 | ⚠️ known issue |
 | API key palsu tidak tersimpan | TC-12 | ✅ |
-| Fetch relay AI Studio dari renderer → diblokir CSP | TC-10 | ✅ |
+| Fetch relay cloud pihak ketiga dari renderer → diblokir CSP | TC-10 | ✅ |
 | `npm run build:frontend` reproducible (app-dist identik) | NFR-02 | ✅ |
 
 ## Log mentah
