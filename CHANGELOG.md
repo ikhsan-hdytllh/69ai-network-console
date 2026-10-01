@@ -11,7 +11,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 - Perbaikan command injection pada tool ping [SEC-01]
 - Validasi TLS tidak lagi dimatikan untuk seluruh aplikasi; sertifikat self-signed di browser Web GUI butuh konfirmasi per host [SEC-02]
 - Hardening jendela utama: sandbox, CSP, whitelist izin, validasi pengirim IPC [SEC-03, SEC-09]
-- API key hanya dikirim ke provider resmi; relay AI Studio dan `localhost:3000` diblokir [SEC-04]
+- API key hanya dikirim ke provider resmi; relay pihak ketiga dan `localhost:3000` diblokir [SEC-04]
 - Password, secret, community, dan PSK disamarkan sebelum output terminal dikirim ke AI [SEC-05]
 - API key yang tervalidasi disimpan terenkripsi (Keychain/DPAPI) [SEC-06]
 - Verifikasi host key SSH (TOFU); algoritma lama hanya lewat mode Legacy per host [SEC-07]
@@ -24,7 +24,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 - Error main process dicatat ke file log [NFR-05]
 
 ### Removed
-- Relay chat Cloud Run AI Studio dan `localhost:3000`
+- Relay chat pihak ketiga dan `localhost:3000`
 - File main process lama `app-dist/electron-files/` dan konfigurasi Tauri yang tidak berfungsi
 
 ### Changed
@@ -48,4 +48,4 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id-ID/1.1.0/) dan
 - Perangkat yang hanya mendukung `diffie-hellman-group1-sha1` tidak bisa di-SSH (keterbatasan runtime Electron)
 
 ## [1.0.0] — 2026-09-30 (baseline, tidak dirilis publik)
-- Export awal dari Google AI Studio. Lihat [audit baseline](docs/00-baseline/AUDIT-2026-09-30.md).
+- Prototipe internal sebelum audit keamanan. Lihat [audit baseline](docs/00-baseline/AUDIT-2026-09-30.md).

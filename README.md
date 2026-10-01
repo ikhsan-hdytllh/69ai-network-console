@@ -84,7 +84,7 @@ xattr -dr com.apple.quarantine "/Applications/69 AI Network Console.app"
 
 ## Security & privacy
 
-This project started as an AI-generated prototype and then went through a full [security audit](docs/00-baseline/AUDIT-2026-09-30.md) and fix cycle before its first public release.
+Every release goes through a documented [security audit](docs/00-baseline/AUDIT-2026-09-30.md) and fix cycle. The 1.1.0 release closes all critical and high findings from that audit.
 
 | | |
 | :--- | :--- |

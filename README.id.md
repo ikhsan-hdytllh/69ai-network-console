@@ -82,7 +82,7 @@ xattr -dr com.apple.quarantine "/Applications/69 AI Network Console.app"
 
 ## Keamanan & privasi
 
-Proyek ini awalnya prototipe hasil generate AI, lalu melewati [audit keamanan](docs/00-baseline/AUDIT-2026-09-30.md) dan siklus perbaikan lengkap sebelum rilis publik pertama.
+Setiap rilis melewati [audit keamanan](docs/00-baseline/AUDIT-2026-09-30.md) dan siklus perbaikan yang terdokumentasi. Rilis 1.1.0 menutup semua temuan critical dan high dari audit tersebut.
 
 | | |
 | :--- | :--- |
